@@ -1,6 +1,0 @@
-C:\Users\Александр\Documents\GitHub\practice.ITIS.kfu\chessboard\chessboard\bin\Debug\chessboard.exe.config
-C:\Users\Александр\Documents\GitHub\practice.ITIS.kfu\chessboard\chessboard\bin\Debug\chessboard.exe
-C:\Users\Александр\Documents\GitHub\practice.ITIS.kfu\chessboard\chessboard\bin\Debug\chessboard.pdb
-C:\Users\Александр\Documents\GitHub\practice.ITIS.kfu\chessboard\chessboard\obj\Debug\chessboard.csprojResolveAssemblyReference.cache
-C:\Users\Александр\Documents\GitHub\practice.ITIS.kfu\chessboard\chessboard\obj\Debug\chessboard.exe
-C:\Users\Александр\Documents\GitHub\practice.ITIS.kfu\chessboard\chessboard\obj\Debug\chessboard.pdb
