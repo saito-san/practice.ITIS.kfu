@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace chessboard
 {
-    class Program
+    class chessboard
     {
         static void Main(string[] args)
         {
