@@ -25,6 +25,7 @@ namespace square_equation
                 x2 = (-b - Math.Sqrt(D)) / (2 * a);
                 Console.WriteLine("Количество корней: 2    х1={0}  ; x2={1}", x1, x2);
             }
+
             else
             {
                 if (D == 0)
