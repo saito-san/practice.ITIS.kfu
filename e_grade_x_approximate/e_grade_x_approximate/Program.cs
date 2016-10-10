@@ -3,8 +3,8 @@ using static System.Console;
 
 namespace e_grade_x_approximate
 {
-    class Program //работает для (n <= 28)&&(x <= 1), иначе - идет переполнение из-за факториала
-    {
+    class Program
+    {//работает для (n <= 27)&&(x <= 1), иначе - идет переполнение из-за факториала
         static void Main(string[] args)
         {
             WriteLine("Введите точность - кол-во знаков после запятой");
