@@ -4,29 +4,26 @@ using static System.Console;
 namespace e_grade_x_approximate
 {
     class Program
-    {//работает для (n <= 27)&&(x <= 1), иначе - идет переполнение из-за факториала
+    {
         static void Main(string[] args)
         {
-            WriteLine("Введите точность - кол-во знаков после запятой");
-            int n = int.Parse(ReadLine());
+            WriteLine("Введите точность");
+            decimal e0, e1 = 1, n = decimal.Parse(ReadLine());
             WriteLine("Введите x");
-            decimal e = 1, fact = 1, x = decimal.Parse(ReadLine());
-            
-            string result;
+            double fact = 1, x = double.Parse(ReadLine()), x1 = x;
             int i = 1;
+
             do
             {
-                e += x/fact;
-                result = Convert.ToString(Math.Round(e, i - 1));
+                e0 = e1;
+                e1 += Convert.ToDecimal(x1/fact);
                 i++;
-                x *= x;
+                x1 *= x;
                 fact *= i;
-                WriteLine("{0}",result);
             }
-            while ((result.Length - result.IndexOf('.') - 1) < n);
-            WriteLine("{0:} /n {1} /n {2}", result, i, Math.Exp(Convert.ToDouble(x)));
+            while ( (e1 - e0) > n );
+            WriteLine($"\nвычисление верно в широком смысле до этого разряда\n{n}\n{e1}\nза {i} шагов\n{Math.Exp(Convert.ToDouble(x))}");
             ReadKey();
-            
         }
     }
 }
