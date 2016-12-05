@@ -10,6 +10,12 @@ namespace gameJumpingDyno
     }
     class Game : IGame
     {
+        Player player;
+        
+        //TODO
+        //Rock rock1 = new Rock();
+        //Rock rock2 = new Rock();
+
         static Timer timer = new Timer(1000);
         private bool _running = true;
         private ConsoleKeyInfo _inputKey;
@@ -42,6 +48,7 @@ namespace gameJumpingDyno
         public void Start(Player player)
         {
             // Game cycle.
+            this.player = player;
             timer.Interval = 150;
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
@@ -83,8 +90,9 @@ namespace gameJumpingDyno
         private void Redraw()
         {
             //TODO
-            //DrawPlayer() without calling a player ref in parameters
-            //DrawRocks()  without calling a player ref in parameters
+            player.DrawPlayer();
+            //DrawRock(rock1);
+            //DrawRock(rock2);
         }
 
         // Stops a game.
