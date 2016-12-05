@@ -76,7 +76,7 @@ namespace gameJumpingDyno
         // Jump methos.
         public void Jump()
         {
-            PositionY += 4;
+            PositionY -= 4;
         }
 
         // Draw method.
