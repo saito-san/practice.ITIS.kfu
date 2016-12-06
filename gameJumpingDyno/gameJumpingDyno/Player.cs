@@ -10,7 +10,7 @@ namespace gameJumpingDyno
     class Player : IPlayer
     {
         private string _name;
-        private int _positionX = 0;
+        private int _positionX = 10;
         private int _positionY = Console.WindowHeight;
         private short _score = 0;
 
@@ -73,7 +73,7 @@ namespace gameJumpingDyno
             ++Score; // Не нравится мне это.
         }
 
-        // Jump methos.
+        // Jump method.
         public void Jump()
         {
             PositionY -= 4;
@@ -84,8 +84,8 @@ namespace gameJumpingDyno
         {
             Console.SetCursorPosition(PositionX, PositionY);
             Console.Write("X");
-            if (PositionY > 1)
-                --PositionY;
+            if (PositionY < Console.WindowHeight)
+                ++PositionY;
         }
     }
 }

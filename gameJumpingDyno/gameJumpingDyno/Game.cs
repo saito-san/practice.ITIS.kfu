@@ -12,9 +12,8 @@ namespace gameJumpingDyno
     {
         Player player;
         
-        //TODO
-        //Rock rock1 = new Rock();
-        //Rock rock2 = new Rock();
+        Rock rock1 = new Rock();
+        DoubleRock rock2 = new DoubleRock();
 
         static Timer timer = new Timer(1000);
         private bool _running = true;
@@ -76,6 +75,18 @@ namespace gameJumpingDyno
                             break;
                     }
                 }
+
+                // Death.
+                if ((player.PositionX == rock1.PositionX) || (player.PositionX == rock2.PositionX))
+                    if (player.PositionY == Console.WindowHeight)
+                    {
+                        Stop(player);
+                    }
+
+                // Score increase.
+                if ((player.PositionX == rock1.PositionX) || (player.PositionX == rock2.PositionX))
+                    if (player.PositionY != Console.WindowHeight)
+                        player.ScoreInc();
             }
         }
 
@@ -91,15 +102,20 @@ namespace gameJumpingDyno
         {
             //TODO
             player.DrawPlayer();
-            //DrawRock(rock1);
-            //DrawRock(rock2);
+            rock1.DrawRock();
+            if ((rock1.PositionX <= Console.WindowWidth / 2) || (rock2.PositionX != Console.WindowWidth - 1))
+                rock2.DrawRock();
+            Console.SetCursorPosition(Console.WindowWidth - 1, Console.WindowHeight);
         }
 
         // Stops a game.
         public void Stop(Player player)
         {
             Running = false;
-            Console.WriteLine($"Ваш счет {player.Score}");
+            timer.Stop();
+            timer.Dispose();
+            Console.Clear();
+            Console.WriteLine($"Вы проиграли. Ваши очки {player.Score}");
             Console.ReadKey();
         }
     }
