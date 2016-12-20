@@ -23,5 +23,18 @@ namespace WorkQuality
                 return timespent;
             }
         }
+
+        public override string ToString()
+        {
+            String.Format($"S/N:{Barcode}\tRelease time:{ReleaseDateTime}\tDefective:{IsDefective}\tDescription:{Description}\n");
+            for (int i = 0; i < WorkLogEntries.Count; i++)
+                Console.Write($"\tWorkLog:\n{WorkLogEntries[i]}");
+            return "";
+        }
+
+        public static void PrintList()
+        {
+
+        }
     }
 }

@@ -11,5 +11,10 @@ namespace WorkQuality
         public int Article { get; set; }
         public string Title { get; set; }
         public TimeSpan StandartTime { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format($"\t\tArticle:{Article}\tTitle:{Title}\tStandart time:{StandartTime}\n");
+        }
     }
 }

@@ -16,8 +16,16 @@ namespace WorkQuality
             batch.Barcode = r.Next(0, int.MaxValue);
             batch.ReleaseDate = DateTime.Now;
 
+            batch.Products = getProducts();
+            Console.WriteLine($"Quality of batch:{batch.Quality = Batch.Qualify(batch)}");
+            Console.WriteLine(batch);
+            Console.ReadKey();
+        }
 
+        static List<Product> getProducts()
+        {
             List<Product> products = new List<Product>();
+            Random r = new Random();
             Product product = new Product();
 
             ProductDescription description = new ProductDescription();
@@ -25,22 +33,25 @@ namespace WorkQuality
             description.StandartTime = new TimeSpan(1, 8, 0);
             description.Title = "изделие";
 
+            product.ReleaseDateTime = DateTime.Now;
             product.Description = description;
-            for (int i = 0; i < 10; i++)
+            for (int i = 1; i != 10; i++)
             {
                 product.Barcode = r.Next(0, int.MaxValue);
-                product.IsDefective = r.
+                product.IsDefective = (r.Next(0, 1) == 1 ? true : false);
+                product.WorkLogEntries = getWorkLogEntries();
                 products.Add(product);
             }
 
-            batch.Products = products;
+            return products;
         }
 
-        static List<WorkLogEntry> WorkLogWntries()
+        static List<WorkLogEntry> getWorkLogEntries()
         {
             List<WorkLogEntry> worklogentries = new List<WorkLogEntry>();
             WorkLogEntry log = new WorkLogEntry();
-            for (int i = 0; i < 10; i++)
+            Random r = new Random();
+            for (int i = 1; i != 10; i++)
             {
                 log.DateTime = DateTime.Now;
                 log.Description = $"выполнение итерации {i}";
@@ -48,6 +59,8 @@ namespace WorkQuality
                 log.TimeSpent = new TimeSpan(0, i + r.Next(-1, 4), 0);
                 worklogentries.Add(log);
             }
+
+            return worklogentries;
         }
-}
+    }
 }

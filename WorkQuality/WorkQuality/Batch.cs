@@ -11,7 +11,7 @@ namespace WorkQuality
         public int Barcode { get; set; }
         public DateTime ReleaseDate { get; set; }
         public List<Product> Products = new List<Product>();
-        public byte Quality { get; private set; }
+        public byte Quality { get; set; }
 
         public static byte Qualify(Batch batch)
         {
@@ -41,6 +41,15 @@ namespace WorkQuality
                 return 2;
 
             return 3;
+        }
+
+        public override string ToString()
+        {
+            Console.Write(String.Format($"Barcode:{Barcode}\tRelease date:{ReleaseDate}\nProducts:\n"));
+
+            for (int i = 0; i < Products.Count; i++)
+                Console.Write($"{Products[i]}");
+            return "";
         }
     }
 }
