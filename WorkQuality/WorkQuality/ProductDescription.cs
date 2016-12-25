@@ -14,7 +14,7 @@ namespace WorkQuality
 
         public override string ToString()
         {
-            return String.Format($"\t\tArticle:{Article}\tTitle:{Title}\tStandart time:{StandartTime}\n");
+            return String.Format($"\tArticle:{Article}\tTitle:{Title}\tStandart time:{StandartTime}");
         }
     }
 }

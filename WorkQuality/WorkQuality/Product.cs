@@ -26,15 +26,14 @@ namespace WorkQuality
 
         public override string ToString()
         {
-            String.Format($"S/N:{Barcode}\tRelease time:{ReleaseDateTime}\tDefective:{IsDefective}\tDescription:{Description}\n");
+            StringBuilder sb = new StringBuilder();
+            sb.Append(String.Format($"S/N:{Barcode}\tRelease time:{ReleaseDateTime}\tDefective:{IsDefective}\t\nDescription:{Description}\nWorkLog:\n"));
+            sb.Append(String.Format($"\tDate:\t\t\tResponsible:\tTime spent:\tDescription:\n"));
             for (int i = 0; i < WorkLogEntries.Count; i++)
-                Console.Write($"\tWorkLog:\n{WorkLogEntries[i]}");
-            return "";
-        }
+                sb.Append($"{WorkLogEntries[i]}\n");
+            sb.Append(String.Format($"\n"));
 
-        public static void PrintList()
-        {
-
+            return sb.ToString();
         }
     }
 }

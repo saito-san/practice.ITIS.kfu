@@ -13,7 +13,7 @@ namespace WorkQuality
         public List<Product> Products = new List<Product>();
         public byte Quality { get; set; }
 
-        public static byte Qualify(Batch batch)
+        public static byte Qualify(ref Batch batch)
         {
             int notDefective = 0;
             int intime = 0;
@@ -45,11 +45,12 @@ namespace WorkQuality
 
         public override string ToString()
         {
-            Console.Write(String.Format($"Barcode:{Barcode}\tRelease date:{ReleaseDate}\nProducts:\n"));
+            StringBuilder sb = new StringBuilder();
+            sb.Append(String.Format($"Barcode:{Barcode}\tRelease date:{ReleaseDate}\nProducts:\n"));
 
             for (int i = 0; i < Products.Count; i++)
-                Console.Write($"{Products[i]}");
-            return "";
+                sb.Append($"{Products[i]}");
+            return sb.ToString();
         }
     }
 }
