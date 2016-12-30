@@ -10,11 +10,9 @@ namespace gameJumpingDyno
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Добро пожаловать! Введите ваше имя");
-            Player player = new Player(Console.ReadLine());
             Console.Clear();
-            Game game = new Game();
-            game.Start(player);
+            Menu menu = new Menu();
+            menu.Open();
         }
     }
 }

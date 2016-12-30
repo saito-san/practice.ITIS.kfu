@@ -3,12 +3,12 @@ using System.Timers;
 
 namespace gameJumpingDyno
 {
-    interface IGame
+    interface IStartStop
     {
         void Start(Player player);
         void Stop(Player player);
     }
-    class Game : IGame
+    class Game : IStartStop
     {
         Player player;
         
@@ -113,10 +113,12 @@ namespace gameJumpingDyno
         {
             Running = false;
             timer.Stop();
-            timer.Dispose();
             Console.Clear();
             Console.WriteLine($"Вы проиграли. Ваши очки {player.Score}");
+            Menu.scoreboard.Add($"{player.Name}\t\t{player.Score}");
             Console.ReadKey();
+            Menu menu = new Menu();
+            menu.Open();
         }
     }
 }

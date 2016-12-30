@@ -2,12 +2,12 @@
 
 namespace gameJumpingDyno
 {
-    interface IPlayer
+    interface IJump
     {
         void Jump();
     }
 
-    class Player : IPlayer
+    class Player : IJump
     {
         private string _name;
         private int _positionX = 10;
@@ -70,13 +70,14 @@ namespace gameJumpingDyno
 
         public void ScoreInc()
         {
-            ++Score; // Не нравится мне это.
+            Score+=1; // Не нравится мне это.
         }
 
         // Jump method.
         public void Jump()
         {
-            PositionY -= 4;
+            if (PositionY == Console.WindowHeight)
+                PositionY -= 4;
         }
 
         // Draw method.
